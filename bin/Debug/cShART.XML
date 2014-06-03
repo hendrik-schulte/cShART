@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>cShART</name>
+    </assembly>
+    <members>
+        <member name="M:cShART.ARTClient.ObjectExistsByID(cShART.ARTClient.ARTTracker,System.Int32)">
+            <summary>
+            Check if an ART-object exists in the client instance.
+            </summary>
+            <param name="tracker">Decide wether you want to check for a 6d-object or a flystick-object.</param>
+            <param name="id">Insert the ID you are looking for.</param>
+            <returns>Returns true if an object with this ID exists.</returns>
+        </member>
+        <member name="M:cShART.ARTClient.GetUnusedFlystick">
+            <summary>
+            In the very unlikely case that you have too many flysticks than you could identify
+            you can use this method to get a flystick that has not yet been assigned to a flystick listener.
+            </summary>
+            <returns>Returns a flystick that has not been assigned to a flystick listener.</returns>
+        </member>
+        <member name="M:cShART.ARTFlystick.getPushedButtonsByName">
+            <summary>
+            This Method translates the button states integer into actual english for better handling.
+            (aka tells you which button is currently pushed.) Useful for debugging.
+            </summary>
+            <returns>Returns a string containing names of pushed buttons</returns>
+        </member>
+        <member name="M:cShART.ARTFlystick.GetStateArrayOfButtons">
+            <summary>
+            This method is for further button handling of the flystick. You will receive a bit array which represents the currently pushed buttons.
+            Array value and corresponding buttons are:
+            [0] = Trigger
+            [1] = Right button
+            [2] = Middle button
+            [3] = Left button
+            </summary>
+            <returns>Returns a bit array represting currently pushed buttons</returns>
+        </member>
+        <member name="M:cShART.ARTMatrix.IsSet">
+            <summary>
+            With this method you can check if a matrix is not completely set to 0.0 floats.
+            </summary>
+            <returns>Returns false when every element of the matrix is 0. Returns true otherwise.</returns>
+        </member>
+        <member name="M:cShART.IFlystickListener.onStickUp(cShART.ARTFlystick)">
+            <summary>
+            For rudimentary stick movement.
+            </summary>
+        </member>
+        <member name="T:cShART.UnityParser">
+            <summary>
+            Class providing various methods for converting ARTObjects to useful objects for Unity3d-Engine
+            </summary>
+        </member>
+        <member name="M:cShART.UnityParser.ParseMatrix(cShART.ARTMatrix,System.Boolean)">
+             <summary>
+             Method used for parsing ARTMatrices to Unity3d matrices (Matrix4x4).
+             </summary>
+            <returns>
+             Returns the converted Matrix4x4 object.
+             </returns>
+             <param name="artM">
+             To be converted ARTMatrix
+             </param>
+        </member>
+        <member name="M:cShART.UnityParser.ParseQuaternion(UnityEngine.Vector3,UnityEngine.Vector3)">
+            <summary>
+            This Method parses various object such as vectors or matrices to a quaternion with a directional and an up vector.
+            </summary>
+            <param name="directionV">Input directional vector</param>
+            <param name="upV">Input up vector</param>
+            <returns>Returns the quaternion</returns>
+        </member>
+        <member name="M:cShART.UnityParser.ParseCameraQuaternion(cShART.ARTMatrix,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            This method parses various input objects and computes a quaternion to use with a camera object in Unity3d.
+            E.g. mapping the rotation of a ART 6d object to the camera.
+            
+            If you wish to inverse an axis just change the correspondent boolean to true.
+            </summary>
+            <param name="artM">Input ARTMatrix</param>
+            <param name="invX">Boolean used to inverse X axis</param>
+            <param name="invY">Boolean used to inverse Y axis</param>
+            <param name="invZ">Boolean used to inverse Z axis</param>
+            <returns>Returns a quaternion</returns>
+        </member>
+        <member name="M:cShART.UnityParser.ParseCameraQuaternion(UnityEngine.Matrix4x4,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="mat">Input Matrix4x4 matrix</param>
+            <returns></returns>
+        </member>
+        <member name="M:cShART.UnityParser.ParseVector(cShART.ARTPoint)">
+            <summary>
+            Parses an ARTPoint to a vector.
+            </summary>
+            <param name="ap">To be converted ARTPoint</param>
+            <returns>Returns the converted vector.</returns>
+        </member>
+    </members>
+</doc>
