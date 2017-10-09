@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace cShART
 {
     public abstract class ARTObject
     {
-        private int id;
-        private ARTPoint position;
-        private ARTMatrix matrix;
+        private readonly int id;
+        private readonly ARTMatrix matrix;
+        private readonly ARTPoint position;
 
         public ARTObject(int id, ARTPoint position, ARTMatrix matrix)
         {
@@ -18,28 +14,32 @@ namespace cShART
             this.position = position;
             this.matrix = matrix;
         }
-        public int getId()
+
+        public int GetId()
         {
-            return this.id;
+            return id;
         }
 
-        public ARTPoint getPosition()
+        public ARTPoint GetPosition()
         {
-            return this.position;
+            return position;
         }
 
-        public ARTMatrix getMatrix()
+        public ARTMatrix GetMatrix()
         {
-            return this.matrix;
+            return matrix;
         }
 
-        protected abstract String nameToString();
+        protected abstract string NameToString();
 
-        protected abstract String extensionsToString();
+        protected abstract string ExtensionsToString();
 
-        public String toString()
+        public override string ToString()
         {
-            return "-- " + nameToString() + " ---------------------------------------------" + Environment.NewLine + "id: " + getId() + Environment.NewLine + getPosition() + Environment.NewLine + getMatrix() + Environment.NewLine + extensionsToString() + "-- " + nameToString() + " ------------------------------------- Ende --" + Environment.NewLine;
+            return "-- " + NameToString() + " ---------------------------------------------" + Environment.NewLine +
+                   "id: " + GetId() + Environment.NewLine + GetPosition() + Environment.NewLine + GetMatrix() +
+                   Environment.NewLine + ExtensionsToString() + "-- " + NameToString() +
+                   " ------------------------------------- Ende --" + Environment.NewLine;
         }
     }
 }

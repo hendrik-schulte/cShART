@@ -1,21 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace cShART
+﻿namespace cShART
 {
     public class ARTPoint : ARTConstruct
     {
-        private float x;
-        private float y;
-        private float z;
-
-        public static ARTPoint Empty()
-        {
-            return new ARTPoint(0.0F, 0.0F, 0.0F);
-        }
+        private readonly float x;
+        private readonly float y;
+        private readonly float z;
 
         public ARTPoint(float x, float y, float z)
         {
@@ -24,46 +13,49 @@ namespace cShART
             this.z = z;
         }
 
-        public float getX()
-        {
-            return this.x;
-        }
-
-        public float getY()
-        {
-            return this.y;
-        }
-
-        public float getZ()
-        {
-            return this.z;
-        }
-
-        public int getSize()
+        public int GetSize()
         {
             return 3;
         }
 
-        public float getElement(int i)
+        public float GetElement(int i)
         {
-            if (i == 0)
+            switch (i)
             {
-                return this.x;
+                case 0:
+                    return x;
+                case 1:
+                    return y;
+                case 2:
+                    return z;
+                    default:
+                        return 0.0f;
             }
-            if (i == 1)
-            {
-                return this.y;
-            }
-            if (i == 2)
-            {
-                return this.z;
-            }
-            return 0.0F;
         }
 
-        public String toString()
+        public static ARTPoint Empty()
         {
-            return "ARTPoint: x " + getX() + ", y " + getY() + ", z " + getZ();
+            return new ARTPoint(0.0F, 0.0F, 0.0F);
+        }
+
+        public float GetX()
+        {
+            return x;
+        }
+
+        public float GetY()
+        {
+            return y;
+        }
+
+        public float GetZ()
+        {
+            return z;
+        }
+
+        public override string ToString()
+        {
+            return "ARTPoint: x " + GetX() + ", y " + GetY() + ", z " + GetZ();
         }
     }
 }

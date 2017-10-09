@@ -1,26 +1,18 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace cShART
 {
     public class ARTFlystick : ARTObject
     {
-        private bool visible;
-        private int numberOfButtons;
-        private int numberOfControllers;
-        private int buttonStates;
-        private float[] controllerStates;
+        private readonly int buttonStates;
+        private readonly float[] controllerStates;
+        private readonly int numberOfButtons;
+        private readonly int numberOfControllers;
+        private readonly bool visible;
 
-        public static ARTFlystick Empty()
-        {
-            return new ARTFlystick(-1, false, 0, 0, 0, new float[0], ARTPoint.Empty(), ARTMatrix.Empty());
-        }
-
-        public ARTFlystick(int id, bool visible, int numberOfButtons, int buttonStates, int numberOfControllers, float[] controllerStates, ARTPoint position, ARTMatrix matrix) : base(id, position, matrix)
+        public ARTFlystick(int id, bool visible, int numberOfButtons, int buttonStates, int numberOfControllers,
+            float[] controllerStates, ARTPoint position, ARTMatrix matrix) : base(id, position, matrix)
         {
             this.visible = visible;
             this.numberOfButtons = numberOfButtons;
@@ -29,116 +21,113 @@ namespace cShART
             this.controllerStates = controllerStates;
         }
 
-        public bool isVisible()
+        public static ARTFlystick Empty()
         {
-            return this.visible;
+            return new ARTFlystick(-1, false, 0, 0, 0, new float[0], ARTPoint.Empty(), ARTMatrix.Empty());
         }
 
-        public int getNumberOfButtons()
+        public bool IsVisible()
         {
-            return this.numberOfButtons;
+            return visible;
         }
 
-        public int getNumberOfControllers()
+        public int GetNumberOfButtons()
         {
-            return this.numberOfControllers;
+            return numberOfButtons;
         }
 
-        public int getButtonStates()
+        public int GetNumberOfControllers()
         {
-            return this.buttonStates;
+            return numberOfControllers;
+        }
+
+        public int GetButtonStates()
+        {
+            return buttonStates;
         }
 
         /// <summary>
-        /// This Method translates the button states integer into actual english for better handling.
-        /// (aka tells you which button is currently pushed.) Useful for debugging.
+        ///     This Method translates the button states integer into actual english for better handling.
+        ///     (aka tells you which button is currently pushed.) Useful for debugging.
         /// </summary>
         /// <returns>Returns a string containing names of pushed buttons</returns>
-        public String getPushedButtonsByName()
+        public string GetPushedButtonsByName()
         {
             //Byte binBStates = Convert.ToByte(buttonStates);
-           // BitArray BA = new BitArray(binBStates);
+            // BitArray BA = new BitArray(binBStates);
             //int[] StatesArray = new int[]{buttonStates};
             //Array.Reverse(StatesArray);
-            BitArray binBStates = new BitArray(new int[]{buttonStates});
-            String output = "";
+            var binBStates = new BitArray(new[] {buttonStates});
+            var output = "";
             //byte[] binBStates = BitConverter.GetBytes(buttonStates);
 
             if (binBStates[3])
-            {
                 output = output + "LeftButton";
-            }
             if (binBStates[2])
             {
                 if (!output.Equals(""))
-                {
                     output = output + "/";
-                }
                 output = output + "MiddleButton";
             }
             if (binBStates[1])
             {
                 if (!output.Equals(""))
-                {
                     output = output + "/";
-                }
                 output = output + "RightButton";
             }
             if (binBStates[0])
             {
                 if (!output.Equals(""))
-                {
                     output = output + "/";
-                }
                 output = output + "Trigger";
             }
             if (output == "")
-            {
                 output = "NothingPressed";
-            }
-            return output + " Byte: " + binBStates.ToString();
+            return output + " Byte: " + binBStates;
         }
 
         /// <summary>
-        /// This method is for further button handling of the flystick. You will receive a bit array which represents the currently pushed buttons.
-        /// Array value and corresponding buttons are:
-        /// [0] = Trigger
-        /// [1] = Right button
-        /// [2] = Middle button
-        /// [3] = Left button
+        ///     This method is for further button handling of the flystick. You will receive a bit array which represents the
+        ///     currently pushed buttons.
+        ///     Array value and corresponding buttons are:
+        ///     [0] = Trigger
+        ///     [1] = Right button
+        ///     [2] = Middle button
+        ///     [3] = Left button
         /// </summary>
         /// <returns>Returns a bit array represting currently pushed buttons</returns>
         public BitArray GetStateArrayOfButtons()
         {
-            return new BitArray(new int[]{buttonStates});
-        }
-        public float[] GetStickXYPos()
-        {
-            return this.controllerStates;
+            return new BitArray(new[] {buttonStates});
         }
 
-        override protected String nameToString()
+        public float[] GetStickXYPos()
+        {
+            return controllerStates;
+        }
+
+        protected override string NameToString()
         {
             return "ARTFlystick";
         }
 
-        protected String controllerStatesToString()
+        protected string ControllerStatesToString()
         {
-            String res = "";
-            for (int i = 0; i < this.controllerStates.Length; i++)
+            var res = "";
+            for (var i = 0; i < controllerStates.Length; i++)
             {
-                res = res + this.controllerStates[i];
-                if (i + 1 < this.controllerStates.Length)
-                {
+                res = res + controllerStates[i];
+                if (i + 1 < controllerStates.Length)
                     res = res + ", ";
-                }
             }
             return res;
         }
 
-        override protected String extensionsToString()
+        protected override string ExtensionsToString()
         {
-            return "isVisible: " + isVisible() + Environment.NewLine + "numberOfButtons: " + getNumberOfButtons() + ", buttonStates: " + getButtonStates() + Environment.NewLine + "numberOfControllers: " + getNumberOfControllers() + ", controllerStates: " + controllerStatesToString() + Environment.NewLine;
+            return "isVisible: " + IsVisible() + Environment.NewLine + "numberOfButtons: " + GetNumberOfButtons() +
+                   ", buttonStates: " + GetButtonStates() + Environment.NewLine + "numberOfControllers: " +
+                   GetNumberOfControllers() + ", controllerStates: " + ControllerStatesToString() + Environment.NewLine;
         }
     }
 }

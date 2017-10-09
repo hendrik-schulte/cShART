@@ -1,146 +1,123 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace cShART
 {
-    public class ARTMatrix :  ARTConstruct
+    public class ARTMatrix : ARTConstruct
     {
-        private ARTPoint row1;
-        private ARTPoint row2;
-        private ARTPoint row3;
+        private readonly ARTPoint row1;
+        private readonly ARTPoint row2;
+        private readonly ARTPoint row3;
+
+        public ARTMatrix(float b0, float b1, float b2, float b3, float b4, float b5, float b6, float b7, float b8) :
+            this(new[] {b1, b2, b3, b4, b5, b6, b7, b8})
+        {
+        }
+
+        public ARTMatrix(float[] b)
+        {
+            var val = new float[9];
+            for (var i = 0; i < b.Length && i < 9; i++)
+                val[i] = b[i];
+            row1 = new ARTPoint(val[0], val[1], val[2]);
+            row2 = new ARTPoint(val[3], val[4], val[5]);
+            row3 = new ARTPoint(val[6], val[7], val[8]);
+        }
+
+        public int GetSize()
+        {
+            return 9;
+        }
+
+        public float GetElement(int i)
+        {
+            if (i == 0)
+                return GetB0();
+            if (i == 1)
+                return GetB1();
+            if (i == 2)
+                return GetB2();
+            if (i == 3)
+                return GetB3();
+            if (i == 4)
+                return GetB4();
+            if (i == 5)
+                return GetB5();
+            if (i == 6)
+                return GetB6();
+            if (i == 7)
+                return GetB7();
+            if (i == 8)
+                return GetB8();
+            return 0.0F;
+        }
 
         public static ARTMatrix Empty()
         {
             return new ARTMatrix(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
         }
 
-        public ARTMatrix(float b0, float b1, float b2, float b3, float b4, float b5, float b6, float b7, float b8) : this(new float[] { b1, b2, b3, b4, b5, b6, b7, b8 }) {}
-
-        public ARTMatrix(float[] b)
+        public float GetB0()
         {
-            float[] val = new float[9];
-            for (int i = 0; (i < b.Length) && (i < 9); i++)
-            {
-                val[i] = b[i];
-            }
-            this.row1 = new ARTPoint(val[0], val[1], val[2]);
-            this.row2 = new ARTPoint(val[3], val[4], val[5]);
-            this.row3 = new ARTPoint(val[6], val[7], val[8]);
+            return row1.GetX();
         }
 
-        public float getB0()
+        public float GetB1()
         {
-            return this.row1.getX();
+            return row1.GetY();
         }
 
-        public float getB1()
+        public float GetB2()
         {
-            return this.row1.getY();
+            return row1.GetZ();
         }
 
-        public float getB2()
+        public float GetB3()
         {
-            return this.row1.getZ();
+            return row2.GetX();
         }
 
-        public float getB3()
+        public float GetB4()
         {
-            return this.row2.getX();
+            return row2.GetY();
         }
 
-        public float getB4()
+        public float GetB5()
         {
-            return this.row2.getY();
+            return row2.GetZ();
         }
 
-        public float getB5()
+        public float GetB6()
         {
-            return this.row2.getZ();
+            return row3.GetX();
         }
 
-        public float getB6()
+        public float GetB7()
         {
-            return this.row3.getX();
+            return row3.GetY();
         }
 
-        public float getB7()
+        public float GetB8()
         {
-            return this.row3.getY();
+            return row3.GetZ();
         }
 
-        public float getB8()
+        public override string ToString()
         {
-            return this.row3.getZ();
-        }
-
-        public int getSize()
-        {
-            return 9;
-        }
-
-        public float getElement(int i)
-        {
-            if (i == 0)
-            {
-                return getB0();
-            }
-            if (i == 1)
-            {
-                return getB1();
-            }
-            if (i == 2)
-            {
-                return getB2();
-            }
-            if (i == 3)
-            {
-                return getB3();
-            }
-            if (i == 4)
-            {
-                return getB4();
-            }
-            if (i == 5)
-            {
-                return getB5();
-            }
-            if (i == 6)
-            {
-                return getB6();
-            }
-            if (i == 7)
-            {
-                return getB7();
-            }
-            if (i == 8)
-            {
-                return getB8();
-            }
-            return 0.0F;
-        }
-
-        public String toString()
-        {
-            return "ARTMatrix:  " + Environment.NewLine + "b0: " + getB0() + ", b1: " + getB1() + ", b2: " + getB2() + Environment.NewLine + "b3: " + getB3() + ", b4: " + getB4() + ", b5: " + getB5() + Environment.NewLine + "b6: " + getB6() + ", b7: " + getB7() + ", b8: " + getB8();
+            return "ARTMatrix:  " + Environment.NewLine + "b0: " + GetB0() + ", b1: " + GetB1() + ", b2: " + GetB2() +
+                   Environment.NewLine + "b3: " + GetB3() + ", b4: " + GetB4() + ", b5: " + GetB5() +
+                   Environment.NewLine + "b6: " + GetB6() + ", b7: " + GetB7() + ", b8: " + GetB8();
         }
 
         /// <summary>
-        /// With this method you can check if a matrix is not completely set to 0.0 floats.
+        ///     With this method you can check if a matrix is not completely set to 0.0 floats.
         /// </summary>
         /// <returns>Returns false when every element of the matrix is 0. Returns true otherwise.</returns>
         public bool IsSet()
         {
-            bool set = false;
-            for (int i = 0; i < getSize(); i++)
-            {
-                if (Math.Abs(getElement(i)) != 0)
-                {
+            var set = false;
+            for (var i = 0; i < GetSize(); i++)
+                if (Math.Abs(GetElement(i)) != 0)
                     set = true;
-                }
-            }
             return set;
         }
     }

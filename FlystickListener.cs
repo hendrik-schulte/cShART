@@ -2,24 +2,23 @@
 {
     public interface IFlystickListener
     {
-        void onMiddleButtonPress(ARTFlystick flystick);
+        void OnMiddleButtonPress();
 
-        void onLeftButtonPress(ARTFlystick flystick);
+        void OnLeftButtonPress();
 
-        void onRightButtonPress(ARTFlystick flystick);
+        void OnRightButtonPress();
 
-        void onTriggerPress(ARTFlystick flystick);
+        void OnTriggerPress();
 
         /// <summary>
         /// For rudimentary stick movement.
         /// </summary>
-        void onStickUp(ARTFlystick flystick);
+        void OnStickUp();
 
-        void onStickDown(ARTFlystick flystick);
+        void OnStickDown();
 
-        void onStickLeft(ARTFlystick flystick);
+        void OnStickLeft();
 
-        void onStickRight(ARTFlystick flystick);
-
+        void OnStickRight();
     }
 }

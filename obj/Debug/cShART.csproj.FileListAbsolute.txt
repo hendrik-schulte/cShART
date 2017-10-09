@@ -1,12 +1,19 @@
-C:\Users\Fabian\Sync\Studium\4. Semester\C#\cShART\cShART\bin\Debug\cShART.dll
-C:\Users\Fabian\Sync\Studium\4. Semester\C#\cShART\cShART\bin\Debug\cShART.pdb
-C:\Users\Fabian\Sync\Studium\4. Semester\C#\cShART\cShART\obj\Debug\cShART.dll
-C:\Users\Fabian\Sync\Studium\4. Semester\C#\cShART\cShART\obj\Debug\cShART.pdb
-C:\Users\Fabian\Sync\Studium\4. Semester\C#\cShART\cShART\obj\Debug\cShART.csprojResolveAssemblyReference.cache
-C:\Users\Fabian\Sync\Studium\4. Semester\C#\cShART\cShART\bin\Debug\UnityEditor.dll
-C:\Users\Fabian\Sync\Studium\4. Semester\C#\cShART\cShART\bin\Debug\UnityEngine.dll
-C:\Users\Fabian\Sync\Studium\4. Semester\C#\cShART\cShART\bin\Debug\Mono.Cecil.dll
-C:\Users\Fabian\Sync\Studium\4. Semester\C#\cShART\cShART\bin\Debug\nunit.framework.dll
-C:\Users\Fabian\Sync\Studium\4. Semester\C#\cShART\cShART\bin\Debug\Unity.DataContract.dll
-C:\Users\Fabian\Sync\Studium\4. Semester\C#\cShART\cShART\bin\Debug\ICSharpCode.NRefactory.dll
-C:\Users\Fabian\Sync\Studium\4. Semester\C#\cShART\cShART\bin\Debug\cShART.XML
+D:\Workspace\cShART\obj\Debug\cShART.csprojResolveAssemblyReference.cache
+D:\Workspace\cShART\obj\Debug\cShART.csproj.CoreCompileInputs.cache
+D:\Workspace\cShART\bin\Debug\UnityEditor.dll
+D:\Workspace\cShART\bin\Debug\UnityEngine.dll
+D:\Workspace\cShART\bin\Debug\Mono.Cecil.dll
+D:\Workspace\cShART\bin\Debug\Unity.SerializationLogic.dll
+D:\Workspace\cShART\bin\Debug\Unity.DataContract.dll
+D:\Workspace\cShART\bin\Debug\ExCSS.Unity.dll
+D:\Workspace\cShART\bin\Debug\Unity.Legacy.NRefactory.dll
+D:\Workspace\cShART\bin\Debug\Unity.UNetWeaver.dll
+D:\Workspace\cShART\bin\Debug\Unity.CecilTools.dll
+D:\Workspace\cShART\bin\Debug\Mono.Cecil.Pdb.dll
+D:\Workspace\cShART\bin\Debug\Mono.Cecil.Mdb.dll
+D:\Workspace\cShART\bin\Debug\UnityEditor.xml
+D:\Workspace\cShART\bin\Debug\UnityEngine.xml
+D:\Workspace\cShART\bin\Debug\cShART.dll
+D:\Workspace\cShART\bin\Debug\cShART.pdb
+D:\Workspace\cShART\obj\Debug\cShART.dll
+D:\Workspace\cShART\obj\Debug\cShART.pdb

@@ -1,38 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace cShART
 {
     public class ART6d : ARTObject
     {
-        private ARTAngle angle;
-
-        public static ART6d Empty()
-        {
-            return new ART6d(-1, ARTPoint.Empty(), ARTAngle.Empty(), ARTMatrix.Empty());
-        }
+        private readonly ARTAngle angle;
 
         public ART6d(int id, ARTPoint position, ARTAngle angle, ARTMatrix matrix) : base(id, position, matrix)
         {
             this.angle = angle;
         }
 
-        public ARTAngle getAngle()
+        public static ART6d Empty()
         {
-            return this.angle;
+            return new ART6d(-1, ARTPoint.Empty(), ARTAngle.Empty(), ARTMatrix.Empty());
         }
 
-        override protected String nameToString()
+        public ARTAngle GetAngle()
+        {
+            return angle;
+        }
+
+        protected override string NameToString()
         {
             return "ART6d";
         }
 
-        override protected String extensionsToString()
+        protected override string ExtensionsToString()
         {
-            return getAngle() + Environment.NewLine;
+            return GetAngle() + Environment.NewLine;
         }
     }
 }

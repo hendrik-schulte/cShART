@@ -3,6 +3,8 @@ cShART
 
 Library for handling packages sent by "Smarttrack" by Advanced Realtime Tracking with partial integration for Unity 3d.
 
+This has been forked from [this](https://github.com/schMarXman/cShART).
+
 Requirements
 ============
 

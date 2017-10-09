@@ -1,54 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace cShART
+﻿namespace cShART
 {
     public class ARTAngle : ARTConstruct
     {
-        private ARTPoint point;
+        private readonly ARTPoint point;
+
+        public ARTAngle(float eta, float theta, float phi)
+        {
+            point = new ARTPoint(eta, theta, phi);
+        }
+
+        public int GetSize()
+        {
+            return point.GetSize();
+        }
+
+        public float GetElement(int i)
+        {
+            return point.GetElement(i);
+        }
 
         public static ARTAngle Empty()
         {
             return new ARTAngle(0.0F, 0.0F, 0.0F);
         }
 
-        public ARTAngle(float eta, float theta, float phi)
+        public float GetEta()
         {
-            this.point = new ARTPoint(eta, theta, phi);
+            return point.GetX();
         }
 
-        public float getEta()
+        public float GetTheta()
         {
-            return this.point.getX();
+            return point.GetY();
         }
 
-        public float getTheta()
+        public float GetPhi()
         {
-            return this.point.getY();
+            return point.GetZ();
         }
 
-        public float getPhi()
-        {
-            return this.point.getZ();
-        }
-
-        public int getSize()
-        {
-            return this.point.getSize();
-        }
-
-        public float getElement(int i)
-        {
-            return this.point.getElement(i);
-        }
-
-        public String toString()
+        public override string ToString()
         {
             return
-              "ARTAngle: eta " + getEta() + ", theta " + getTheta() + ", phi " + getPhi();
+                "ARTAngle: eta " + GetEta() + ", theta " + GetTheta() + ", phi " + GetPhi();
         }
     }
 }
