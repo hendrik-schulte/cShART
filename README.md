@@ -1,17 +1,17 @@
-cShART
-======
+# cShART
 
 Library for handling packages sent by "Smarttrack" by Advanced Realtime Tracking with partial integration for Unity 3d.
 
 This has been forked from [this](https://github.com/schMarXman/cShART).
 
-Requirements
-============
+## Download 
 
-This is a library for "Smarttrack" devices by Advanced Realtime Tracking. You are required to have one running with its
-driver "DTrack2".
+[cShART.dll](https://github.com/hendrik-schulte/cShART/blob/master/bin/Debug/cShART.dll)
 
-Usage
-=====
+## Requirements
+
+This is a library for Advanced Realtime Tracking (ART) tracking devices. You are required to have DTrack running.
+
+## Usage
 
 Just implement the ARTObserver interface, run an ARTClient and attach the implemented observer to the client.
