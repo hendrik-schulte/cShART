@@ -2,7 +2,9 @@
 ## General
 #################
 
+# Allow
 
+!**\cShART.dll
 
 #################
 ## Eclipse
@@ -11,7 +13,6 @@
 *.pydevproject
 .project
 .metadata
-bin/
 tmp/
 *.tmp
 *.bak
@@ -49,11 +50,8 @@ local.properties
 
 # Build results
 
-[Dd]ebug/
-[Rr]elease/
 x64/
 build/
-[Bb]in/
 [Oo]bj/
 
 # MSTest test Results
@@ -221,3 +219,7 @@ pip-log.txt
 .mr.developer.cfg
 .idea/.idea.cShART/.idea/workspace.xml
 .vs/cShART/v15/sqlite3/storage.ide
+bin/Release/UnityEngine.xml
+bin/Release/UnityEditor.xml
+bin/Debug/UnityEditor.xml
+bin/Debug/UnityEngine.xml
